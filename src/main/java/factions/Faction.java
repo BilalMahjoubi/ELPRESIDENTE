@@ -1,63 +1,63 @@
 package factions;
 
 public class Faction {
-    private int nb_adherant;
-    private String nom;
-    private int approbation;
+    private int nb_Member;
+    private String name;
+    private int approval;
 
-    public Faction(String nom, int nb_adherant, int approbation) {
-        this.nom = nom;
-        this.approbation = approbation;
-        this.nb_adherant = nb_adherant;
+    public Faction(String name, int nb_Member, int approval) {
+        this.name = name;
+        this.approval = approval;
+        this.nb_Member = nb_Member;
 
     }
 
-    public void augmenterApprobation(int nombre) {
-        if (this.approbation > 0) {
-            this.approbation += nombre;
-            this.approbationMax();
+    public void increaseApproval(int nb) {
+        if (this.approval > 0) {
+            this.approval += nb;
+            this.maxApproval();
         }
     }
 
-    public void diminuerApprobation(int nombre) {
-        if (this.approbation > 0) {
-            this.approbation -= nombre;
-            this.approbationMin();
+    public void decreaseApproval(int nb) {
+        if (this.approval > 0) {
+            this.approval -= nb;
+            this.minApproval();
         }
     }
 
-    public void approbationMax() {
+    public void maxApproval() {
         int max = 100;
-        if (approbation >= max) {
-            approbation = max;
+        if (approval >= max) {
+            approval = max;
         }
     }
-    public void approbationMin() {
+    public void minApproval() {
         int min = 0;
-        if (approbation <= min) {
-            approbation = min;
+        if (approval <= min) {
+            approval = min;
         }
     }
 
-    public int getApprobation() {
+    public int getApproval() {
 
-        return approbation;
+        return approval;
     }
 
     public int satisfaction() {
-        return nb_adherant * approbation;
+        return nb_Member * approval;
     }
 
 
-    public int getNb_adherant() {
-        return nb_adherant;
+    public int getNbMember() {
+        return nb_Member;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void diminuerAdherant(int nombre) {
-        this.nb_adherant = nb_adherant - nombre;
+    public void decreaseMember(int nb) {
+        this.nb_Member = nb_Member - nb;
     }
 }

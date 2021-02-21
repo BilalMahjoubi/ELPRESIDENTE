@@ -1,4 +1,4 @@
-import campagne.*;
+import campaign.*;
 
 import java.util.Scanner;
 
@@ -6,25 +6,25 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Choisir une campagne (sable/galactic/hero/techno)");
-        String campagne = sc.nextLine();
-        switch (campagne) {
+        String campaign = sc.nextLine();
+        switch (campaign) {
             case "sable" -> {
-                Campagne c = new CampagneBacASable();
+                Campaign c = new CampaignBacASable();
                 String dif = c.choisirDifficulte();
                 c.lancer(dif);
             }
             case "galactic" -> {
-                Campagne c = new CampagneGalactic();
+                Campaign c = new CampaignGalactic();
                 String dif = c.choisirDifficulte();
                 c.lancer(dif);
             }
             case "hero" -> {
-                Campagne c = new CampagneSuperHeros();
+                Campaign c = new CampaignSuperHeroes();
                 String dif = c.choisirDifficulte();
                 c.lancer(dif);
             }
             case "techno" -> {
-                Campagne c = new CampagneTechno();
+                Campaign c = new CampaignTechno();
                 String dif = c.choisirDifficulte();
                 c.lancer(dif);
             }
