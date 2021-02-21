@@ -1,7 +1,5 @@
 package factions;
 
-import evenements.Economie;
-
 public class Faction {
     private int nb_adherant;
     private String nom;

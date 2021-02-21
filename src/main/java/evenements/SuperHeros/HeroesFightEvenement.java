@@ -1,9 +1,8 @@
 package evenements.SuperHeros;
 
 import campagne.Campagne;
-import evenements.Economie;
+import economie.Economie;
 import evenements.Evenement;
-import factions.Faction;
 
 public class HeroesFightEvenement extends Evenement{
     private final String description;

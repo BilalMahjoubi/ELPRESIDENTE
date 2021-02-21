@@ -1,6 +1,6 @@
 package evenements;
 
-import factions.Faction;
+import economie.Economie;
 import campagne.Campagne;
 
 public class EvenementFinAnnee extends Evenement {

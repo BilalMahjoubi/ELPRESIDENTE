@@ -1,9 +1,10 @@
-package evenements;
+package evenements.evenementspolitique;
 
 import campagne.Campagne;
-import factions.Faction;
+import economie.Economie;
+import evenements.Evenement;
 
-public class FemmeEvenement extends Evenement{
+public class FemmeEvenement extends Evenement {
     private final String description;
 
     public FemmeEvenement() {
@@ -16,7 +17,7 @@ public class FemmeEvenement extends Evenement{
     }
 
     @Override
-    public void consequences( int choix, Economie e, Campagne campagne) {
+    public void consequences(int choix, Economie e, Campagne campagne) {
         if(choix == 1){
             campagne.getFactions()[1].diminuerApprobation(5);
 

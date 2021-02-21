@@ -1,4 +1,4 @@
-package evenements;
+package economie;
 
 import campagne.Campagne;
 import factions.Faction;

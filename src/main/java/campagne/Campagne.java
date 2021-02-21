@@ -1,5 +1,6 @@
 package campagne;
 
+import economie.Economie;
 import evenements.*;
 import factions.Faction;
 
@@ -17,13 +18,12 @@ public class Campagne {
 				new Faction("Liberaux", 11, 90), new Faction("Religieux", 11, 90), new Faction("Militaristes", 11, 90),
 				new Faction("Ecologistes", 11, 90), new Faction("Nationalistes", 11, 90),
 				new Faction("Loyalistes", 11, 90) };
-		economie = new Economie(1000, 100, 12, 12);
+		economie = new Economie(10000, 100, 20, 20);
 	}
 
 	public void lancer(String difficulte) {
 		int choix;
-		ArrayList<Integer> evenementpassé = new ArrayList<>(); 
-		
+		ArrayList<Integer> evenementpassé = new ArrayList<>();
 		Random r = new Random();
 		int get;
 		int nb_evenement = 0;
@@ -31,6 +31,7 @@ public class Campagne {
 		boolean echec = false;
 		boolean quit = false;
 		Scanner sc = new Scanner(System.in);
+		economie.augmenterNourriture();
 		EvenementFinAnnee fin = new EvenementFinAnnee();
 		while (!echec) {
 			while (nb_evenement != 4) {
@@ -49,7 +50,7 @@ public class Campagne {
 					getApprobationTotal();
 					++nb_evenement;
 				}
-				
+
 			}
 			economie.augmenterNourriture();
 			economie.augmenterTrésorerie();
@@ -130,6 +131,7 @@ public class Campagne {
 		System.out.println("Votre trésorerie : " + economie.getTresorerie() + " €");
 		System.out.println("Votre agriculture : " + economie.getAgriculture() + " %");
 		System.out.println("Votre industrie : " + economie.getIndustrie() + " %");
+		System.out.println("Nombre d'unité de nourriture par personne : " + economie.nourritureTotale(this) + "unités ");
 		System.out.println("\n//////////////////////////////////////////////////////////\n");
 	}
 }
