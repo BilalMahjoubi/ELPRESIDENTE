@@ -22,15 +22,22 @@ public class Economie {
         this.surface = surface - (agriculture + industrie);
     }
 
-    public int getTresorie() {
+    public int getTresorerie() {
         return tresorie;
     }
-
+    
+    public int getAgriculture() {
+		return agriculture;
+    }
+    
+    public int getIndustrie() {
+    	return industrie;
+    }
+    
     public void augmenterIndustrie(int augmentation) {
         if (surface > 0) {
             this.industrie = this.industrie + augmentation;
             this.surface = this.surface - augmentation;
-            System.out.println("-----" + this.industrie + "-----" + this.surface);
         }
 
 
@@ -45,8 +52,6 @@ public class Economie {
         if (surface > 0) {
             this.agriculture = this.industrie + augmentation;
             this.surface = this.surface - augmentation;
-            System.out.println(this.industrie + this.surface);
-
 
         }
 
@@ -76,7 +81,6 @@ public class Economie {
         }
 
         total_nourriture = nourriture / nb_adherant;
-        System.out.println(total_nourriture);
         return total_nourriture;
 
 
@@ -126,7 +130,6 @@ public class Economie {
         int faction_random;
         Random r = new Random();
         while (total < 4) {
-            System.out.println("ypooooooooooooo");
             faction_random = r.nextInt(c.getFactions().length);
             c.getFactions()[faction_random].diminuerAdherant(1);
             c.getFactions()[faction_random].diminuerApprobation(2);
@@ -141,5 +144,3 @@ public class Economie {
 
 
 }
-
-

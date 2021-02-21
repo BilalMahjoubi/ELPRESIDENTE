@@ -33,22 +33,47 @@ public class CivilWarEvenement extends Evenement{
             campagne.getFactions()[4].diminuerApprobation(20);
             campagne.getFactions()[3].diminuerApprobation(20);
 
-
-
         }
     }
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+    	if(choix == 1){
+            campagne.getFactions()[4].augmenterApprobation(45);
+            campagne.getFactions()[3].diminuerApprobation(10);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+            campagne.getFactions()[3].augmenterApprobation(40);
+            campagne.getFactions()[4].diminuerApprobation(10);
+
+
         }
-        else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+        else if (choix == 3){
+            campagne.getFactions()[2].augmenterApprobation(20);
+            campagne.getFactions()[4].diminuerApprobation(10);
+            campagne.getFactions()[3].diminuerApprobation(10);
+
+        }
+
+    }
+    
+    @Override
+    public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+    	if(choix == 1){
+            campagne.getFactions()[4].augmenterApprobation(15);
+            campagne.getFactions()[3].diminuerApprobation(30);
+        }
+        else if (choix == 2){
+            campagne.getFactions()[3].augmenterApprobation(10);
+            campagne.getFactions()[4].diminuerApprobation(30);
+
+
+        }
+        else if (choix == 3){
+            campagne.getFactions()[2].augmenterApprobation(5);
+            campagne.getFactions()[4].diminuerApprobation(30);
+            campagne.getFactions()[3].diminuerApprobation(30);
+
         }
 
     }

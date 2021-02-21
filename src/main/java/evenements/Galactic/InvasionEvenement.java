@@ -37,17 +37,36 @@ public class InvasionEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+    	if(choix == 1){
+        	campagne.getFactions()[3].diminuerApprobation(5);
+            campagne.getFactions()[5].diminuerApprobation(10);
+            campagne.getFactions()[6].augmenterApprobation(20);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+            campagne.getFactions()[2].augmenterApprobation(30);
         }
         else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+        	e.augmenterAgriculture(20);
+            e.augmenterIndustrie(10);
         }
 
+    }
+    
+    public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+    	if(choix == 1){
+        	campagne.getFactions()[3].diminuerApprobation(15);
+            campagne.getFactions()[4].diminuerApprobation(10);
+            campagne.getFactions()[5].diminuerApprobation(25);
+            campagne.getFactions()[6].augmenterApprobation(5);
+        }
+        else if (choix == 2){
+            campagne.getFactions()[2].augmenterApprobation(5);
+            campagne.getFactions()[7].diminuerApprobation(10);
+        }
+        else if(choix == 3) {
+        	e.augmenterAgriculture(5);
+            e.augmenterIndustrie(5);
+        }
     }
 
     @Override

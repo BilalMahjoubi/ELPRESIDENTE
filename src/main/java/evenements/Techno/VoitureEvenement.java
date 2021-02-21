@@ -35,17 +35,35 @@ public class VoitureEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+    	if(choix == 1){
+            e.augmenterIndustrie(20);
+            campagne.getFactions()[5].diminuerApprobation(12);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+        	e.augmenterIndustrie(35);
+            campagne.getFactions()[5].diminuerApprobation(7);
         }
-        else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+        else if (choix == 3){
+        	e.augmenterIndustrie(30);
+            campagne.getFactions()[5].augmenterApprobation(30);
+            campagne.getFactions()[0].diminuerApprobation(5);
         }
-
+    }
+    
+    public void consequencesDifficile( int choix, Economie e, Campagne campagne) {
+        if(choix == 1){
+            e.augmenterIndustrie(5);
+            campagne.getFactions()[5].diminuerApprobation(40);
+        }
+        else if (choix == 2){
+        	e.augmenterIndustrie(10);
+            campagne.getFactions()[5].diminuerApprobation(25);
+        }
+        else if (choix == 3){
+        	e.augmenterIndustrie(10);
+            campagne.getFactions()[5].augmenterApprobation(10);
+            campagne.getFactions()[0].diminuerApprobation(20);
+        }
     }
 
     @Override

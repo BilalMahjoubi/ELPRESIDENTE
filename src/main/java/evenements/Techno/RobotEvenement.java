@@ -39,17 +39,44 @@ public class RobotEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
+    	if(choix == 1){
+            campagne.getFactions()[0].diminuerApprobation(5);
             campagne.getFactions()[1].diminuerApprobation(5);
-
+            campagne.getFactions()[2].diminuerApprobation(5);
+            campagne.getFactions()[3].diminuerApprobation(5);
+            campagne.getFactions()[4].augmenterApprobation(20);
+            campagne.getFactions()[7].augmenterApprobation(20);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+        	campagne.getFactions()[4].augmenterApprobation(30);
+        	campagne.getFactions()[6].diminuerApprobation(5);
+        	campagne.getFactions()[2].diminuerApprobation(5);
         }
-        else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+        else if (choix == 3){
+        	campagne.getFactions()[0].augmenterApprobation(30);
+        	campagne.getFactions()[1].diminuerApprobation(5);
         }
 
+    }
+    
+    public void consequencesDifficile( int choix, Economie e, Campagne campagne) {
+        if(choix == 1){
+            campagne.getFactions()[0].diminuerApprobation(10);
+            campagne.getFactions()[1].diminuerApprobation(10);
+            campagne.getFactions()[2].diminuerApprobation(10);
+            campagne.getFactions()[3].diminuerApprobation(10);
+            campagne.getFactions()[4].augmenterApprobation(5);
+            campagne.getFactions()[7].augmenterApprobation(5);
+        }
+        else if (choix == 2){
+        	campagne.getFactions()[4].augmenterApprobation(7);
+        	campagne.getFactions()[6].diminuerApprobation(10);
+        	campagne.getFactions()[2].diminuerApprobation(15);
+        }
+        else if (choix == 3){
+        	campagne.getFactions()[0].augmenterApprobation(10);
+        	campagne.getFactions()[1].diminuerApprobation(20);
+        }
     }
 
     @Override

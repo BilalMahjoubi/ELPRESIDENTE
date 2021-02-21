@@ -11,8 +11,8 @@ public class HeroesFightEvenement extends Evenement{
     public HeroesFightEvenement() {
         super();
         this.description = "Les combats entre super héros et super vilains font énormément de dégâts matériaux et souvent vitaux";
-        this.ajouterChoix("1- Laisser tel quelle, les super héros sont plus fort que tout, pn leur fait confiance");
-        this.ajouterChoix("3- Créer une brigade anti-ciminelle mélangeant super-héros et humains, EGALITE pour TOUS");
+        this.ajouterChoix("1- Laisser tel quel, les super héros sont plus fort que tout, on leur fait confiance");
+        this.ajouterChoix("2- Créer une brigade anti-ciminelle mélangeant super-héros et humains, EGALITE pour TOUS");
     }
 
     @Override
@@ -31,15 +31,30 @@ public class HeroesFightEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
+    	if(choix == 1){
+            campagne.getFactions()[4].augmenterApprobation(30);
+            campagne.getFactions()[3].diminuerApprobation(5);
 
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+            campagne.getFactions()[2].augmenterApprobation(20);
+            campagne.getFactions()[3].diminuerApprobation(5);
+            e.diminuerTrésorerie(200);
         }
-        else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+
+    }
+    
+    @Override
+    public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+    	if(choix == 1){
+            campagne.getFactions()[4].augmenterApprobation(10);
+            campagne.getFactions()[3].diminuerApprobation(20);
+
+        }
+        else if (choix == 2){
+            campagne.getFactions()[2].augmenterApprobation(5);
+            campagne.getFactions()[3].diminuerApprobation(20);
+            e.diminuerTrésorerie(700);
         }
 
     }

@@ -33,25 +33,41 @@ public class CelluleEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
+    	if(choix == 1){
+            campagne.getFactions()[2].diminuerApprobation(15);
+            campagne.getFactions()[4].augmenterApprobation(45);
+
 
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+            campagne.getFactions()[7].augmenterApprobation(60);
+            campagne.getFactions()[2].diminuerApprobation(10);
         }
-        else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
-        }
-
     }
+    
+    @Override
+	public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+    	if(choix == 1){
+            campagne.getFactions()[2].diminuerApprobation(45);
+            campagne.getFactions()[4].augmenterApprobation(15);
 
+
+        }
+        else if (choix == 2){
+            campagne.getFactions()[7].augmenterApprobation(20);
+            campagne.getFactions()[2].diminuerApprobation(35);
+
+        }
+	}
+    
     @Override
     public String getDescription() {
         String s ="";
         System.out.println(description);
         return s;
     }
+
+	
 
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

@@ -39,17 +39,46 @@ public class PuceEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+    	if(choix == 1){
+        	campagne.getFactions()[0].diminuerApprobation(4);
+        	campagne.getFactions()[1].diminuerApprobation(4);
+        	campagne.getFactions()[2].diminuerApprobation(6);
+        	campagne.getFactions()[3].diminuerApprobation(4);
+        	campagne.getFactions()[6].diminuerApprobation(4);
+        	campagne.getFactions()[7].diminuerApprobation(4);
+            campagne.getFactions()[5].augmenterApprobation(60);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
-        }
-        else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+        	campagne.getFactions()[0].augmenterApprobation(10);
+        	campagne.getFactions()[1].augmenterApprobation(10);
+        	campagne.getFactions()[2].augmenterApprobation(10);
+        	campagne.getFactions()[3].augmenterApprobation(10);
+        	campagne.getFactions()[6].augmenterApprobation(10);
+        	campagne.getFactions()[7].augmenterApprobation(10);
+            campagne.getFactions()[5].diminuerApprobation(15);
         }
 
+    }
+    
+    public void consequencesDifficile( int choix, Economie e, Campagne campagne) {
+        if(choix == 1){
+        	campagne.getFactions()[0].diminuerApprobation(15);
+        	campagne.getFactions()[1].diminuerApprobation(15);
+        	campagne.getFactions()[2].diminuerApprobation(20);
+        	campagne.getFactions()[3].diminuerApprobation(15);
+        	campagne.getFactions()[6].diminuerApprobation(15);
+        	campagne.getFactions()[7].diminuerApprobation(815);
+            campagne.getFactions()[5].augmenterApprobation(20);
+        }
+        else if (choix == 2){
+        	campagne.getFactions()[0].augmenterApprobation(3);
+        	campagne.getFactions()[1].augmenterApprobation(3);
+        	campagne.getFactions()[2].augmenterApprobation(3);
+        	campagne.getFactions()[3].augmenterApprobation(3);
+        	campagne.getFactions()[6].augmenterApprobation(3);
+        	campagne.getFactions()[7].augmenterApprobation(3);
+            campagne.getFactions()[5].diminuerApprobation(40);
+        }
     }
 
     @Override

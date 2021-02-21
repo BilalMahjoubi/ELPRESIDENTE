@@ -39,18 +39,44 @@ public class MuskEvenement extends Evenement{
     }
 
     @Override
-    public void consequencesFacile(int choix, Economie e, Campagne campagne) {
+    public void consequencesFacile( int choix, Economie e, Campagne campagne) {
         if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+            campagne.getFactions()[1].augmenterApprobation(40);
+            campagne.getFactions()[7].diminuerApprobation(4);
+            campagne.getFactions()[6].diminuerApprobation(4);
+            campagne.getFactions()[3].diminuerApprobation(2);
+            e.augmenterIndustrie(30);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+        	campagne.getFactions()[1].augmenterApprobation(40);
+        	e.augmenterIndustrie(20);
         }
         else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+            campagne.getFactions()[7].augmenterApprobation(30);
+            campagne.getFactions()[6].augmenterApprobation(30);
+            campagne.getFactions()[3].augmenterApprobation(10);
+            campagne.getFactions()[1].diminuerApprobation(10);
         }
-
+    }
+    
+    public void consequencesDifficile( int choix, Economie e, Campagne campagne) {
+        if(choix == 1){
+            campagne.getFactions()[1].augmenterApprobation(10);
+            campagne.getFactions()[7].diminuerApprobation(15);
+            campagne.getFactions()[6].diminuerApprobation(15);
+            campagne.getFactions()[3].diminuerApprobation(10);
+            e.augmenterIndustrie(30);
+        }
+        else if (choix == 2){
+        	campagne.getFactions()[1].augmenterApprobation(10);
+        	e.augmenterIndustrie(10);
+        }
+        else if(choix == 3) {
+            campagne.getFactions()[7].augmenterApprobation(10);
+            campagne.getFactions()[6].augmenterApprobation(10);
+            campagne.getFactions()[3].augmenterApprobation(2);
+            campagne.getFactions()[1].diminuerApprobation(30);
+        }
     }
 
     @Override

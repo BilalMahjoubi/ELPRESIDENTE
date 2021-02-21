@@ -33,6 +33,7 @@ public abstract class Evenement {
 
     public abstract void consequences( int choix, Economie e, Campagne campagne);
     public abstract void consequencesFacile( int choix, Economie e, Campagne campagne);
+    public abstract void consequencesDifficile( int choix, Economie e, Campagne campagne);
 
     public abstract String getDescription();
 

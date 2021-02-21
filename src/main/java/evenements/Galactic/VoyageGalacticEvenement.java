@@ -12,7 +12,7 @@ public class VoyageGalacticEvenement extends Evenement{
         super();
         this.description = "Afin de mieux connaître l'univers, investissez dans un voyage spatial qui va être organisé au profit de vos habitants ";
         this.ajouterChoix("1- Voyager le plus proche du soleil");
-        this.ajouterChoix("2- VOyager le plus loin du soleil");
+        this.ajouterChoix("2- Voyager le plus loin du soleil");
         this.ajouterChoix("3- Prenez le risque des trous noirs");
 
     }
@@ -38,18 +38,42 @@ public class VoyageGalacticEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+    	if(choix == 1){
+            campagne.getFactions()[2].augmenterApprobation(5);
+            campagne.getFactions()[3].diminuerApprobation(2);
+            campagne.getFactions()[0].augmenterApprobation(10);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+        	campagne.getFactions()[2].augmenterApprobation(5);
+        	campagne.getFactions()[3].diminuerApprobation(2);
+        	campagne.getFactions()[1].augmenterApprobation(10);
         }
         else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+        	campagne.getFactions()[2].augmenterApprobation(5);
+        	campagne.getFactions()[3].diminuerApprobation(2);
+        	campagne.getFactions()[7].augmenterApprobation(10);
         }
 
     }
+    
+	@Override
+	public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+		if(choix == 1){
+            campagne.getFactions()[2].augmenterApprobation(2);
+            campagne.getFactions()[3].diminuerApprobation(10);
+            campagne.getFactions()[0].augmenterApprobation(2);
+        }
+        else if (choix == 2){
+        	campagne.getFactions()[2].augmenterApprobation(2);
+        	campagne.getFactions()[3].diminuerApprobation(10);
+        	campagne.getFactions()[1].augmenterApprobation(2);
+        }
+        else if(choix == 3) {
+        	campagne.getFactions()[2].augmenterApprobation(2);
+        	campagne.getFactions()[3].diminuerApprobation(10);
+        	campagne.getFactions()[7].augmenterApprobation(2);
+        }
+	}
 
     @Override
     public String getDescription() {
@@ -57,6 +81,7 @@ public class VoyageGalacticEvenement extends Evenement{
         System.out.println(description);
         return s;
     }
+
 
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

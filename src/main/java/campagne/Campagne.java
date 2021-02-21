@@ -20,13 +20,14 @@ public class Campagne {
 		economie = new Economie(1000, 100, 12, 12);
 	}
 
-	public void lancer(String difficlute) {
+	public void lancer(String difficulte) {
 		int choix;
 		ArrayList<Integer> evenementpassé = new ArrayList<>(); 
 		
 		Random r = new Random();
 		int get;
 		int nb_evenement = 0;
+		int years = 1;
 		boolean echec = false;
 		boolean quit = false;
 		Scanner sc = new Scanner(System.in);
@@ -37,16 +38,21 @@ public class Campagne {
 				if (!evenementpassé.contains(get)) {
 					evenements[get].toString();
 					choix = sc.nextInt();
-					if (difficlute.equals("n")) {
+					if (difficulte.equals("n")) {
 						evenements[get].consequences(choix, economie, this);
-					} else if (difficlute.equals("f")) {
+					} else if (difficulte.equals("f")) {
 						evenements[get].consequencesFacile(choix, economie, this);
+					} else if (difficulte.equals("d")) {
+						evenements[get].consequencesDifficile(choix, economie, this);
 					}
 					evenementpassé.add(get);
+					getApprobationTotal();
 					++nb_evenement;
 				}
 				
 			}
+			economie.augmenterNourriture();
+			economie.augmenterTrésorerie();
 			while (!quit) {
 				fin.toString();
 				choix = sc.nextInt();
@@ -59,6 +65,7 @@ public class Campagne {
 			quit = false;
 			nb_evenement = 0;
 		}
+		System.out.println("Vous avez perdu ! Le peuple vous a destitué de vos fonctions et pendu. Vous avez tenu : " + years + " ans");
 
 	}
 
@@ -71,7 +78,7 @@ public class Campagne {
 			nb_total += f.getNb_adherant();
 		}
 		satisfaction_globale /= nb_total;
-		System.out.println(satisfaction_globale);
+		System.out.println("Taux de satisfaction global sur l'année  : " +satisfaction_globale + " %");
 		nourriture_total = e.nourritureTotale(this);
 		if (nourriture_total < 4) {
 			e.elimination(this);
@@ -86,7 +93,7 @@ public class Campagne {
 
 	public String choisirDifficulte() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Choisir un niveau de difficulté (f/n)");
+		System.out.println("Choisir un niveau de difficulté (f/n/d)");
 		return sc.nextLine();
 	}
 
@@ -98,5 +105,31 @@ public class Campagne {
 			return true;
 		}
 		return false;
+	}
+	
+	public void start() {
+		System.out.println("\n"
+				+ "######## ##          ########  ########  ########  ######  #### ########  ######## ##    ## ######## ######## \n"
+				+ "##       ##          ##     ## ##     ## ##       ##    ##  ##  ##     ## ##       ###   ##    ##    ##       \n"
+				+ "##       ##          ##     ## ##     ## ##       ##        ##  ##     ## ##       ####  ##    ##    ##       \n"
+				+ "######   ##          ########  ########  ######    ######   ##  ##     ## ######   ## ## ##    ##    ######   \n"
+				+ "##       ##          ##        ##   ##   ##             ##  ##  ##     ## ##       ##  ####    ##    ##       \n"
+				+ "##       ##          ##        ##    ##  ##       ##    ##  ##  ##     ## ##       ##   ###    ##    ##       \n"
+				+ "######## ########    ##        ##     ## ########  ######  #### ########  ######## ##    ##    ##    ######## \n"
+				+ "");
+	}
+	
+	public void getApprobationTotal() {
+		int cmp = 0;
+		System.out.println("\n///////// VOTRE APPROBATION ACTUELLE PAR FACTION /////////\n");
+		for(Faction f : factions){
+            System.out.println(cmp +"-" + f.getNom() + " (" + f.getApprobation() +" d'approbation)");
+            ++cmp;
+        }
+		System.out.println("------------------------------------");
+		System.out.println("Votre trésorerie : " + economie.getTresorerie() + " €");
+		System.out.println("Votre agriculture : " + economie.getAgriculture() + " %");
+		System.out.println("Votre industrie : " + economie.getIndustrie() + " %");
+		System.out.println("\n//////////////////////////////////////////////////////////\n");
 	}
 }

@@ -44,17 +44,51 @@ public class PlanetWarEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+    	if(choix == 1){
+            campagne.getFactions()[0].augmenterApprobation(10);
+            campagne.getFactions()[4].augmenterApprobation(30);
+            campagne.getFactions()[6].augmenterApprobation(20);
+            campagne.getFactions()[2].diminuerApprobation(12);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+        	campagne.getFactions()[2].augmenterApprobation(30);
+        	e.diminuerAgriculture(7);
+        	e.diminuerTrésorerie(5);
         }
+        
         else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+            campagne.getFactions()[2].augmenterApprobation(30);
+            campagne.getFactions()[0].diminuerApprobation(2);
+            campagne.getFactions()[1].diminuerApprobation(2);
+            campagne.getFactions()[3].diminuerApprobation(2);
+            campagne.getFactions()[4].diminuerApprobation(2);
+            campagne.getFactions()[6].diminuerApprobation(2);
+            campagne.getFactions()[7].diminuerApprobation(2);
         }
-
+    }
+    
+    public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+    	if(choix == 1){
+            campagne.getFactions()[0].augmenterApprobation(2);
+            campagne.getFactions()[4].augmenterApprobation(10);
+            campagne.getFactions()[6].augmenterApprobation(5);
+            campagne.getFactions()[2].diminuerApprobation(30);
+        }
+        else if (choix == 2){
+        	campagne.getFactions()[2].augmenterApprobation(10);
+        	e.diminuerAgriculture(20);
+        	e.diminuerTrésorerie(15);
+        }
+        
+        else if(choix == 3) {
+            campagne.getFactions()[2].augmenterApprobation(10);
+            campagne.getFactions()[0].diminuerApprobation(10);
+            campagne.getFactions()[1].diminuerApprobation(10);
+            campagne.getFactions()[3].diminuerApprobation(10);
+            campagne.getFactions()[4].diminuerApprobation(10);
+            campagne.getFactions()[6].diminuerApprobation(10);
+            campagne.getFactions()[7].diminuerApprobation(10);
+        }
     }
 
     @Override

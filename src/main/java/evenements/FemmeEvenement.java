@@ -45,6 +45,11 @@ public class FemmeEvenement extends Evenement{
     }
 
     @Override
+    public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+
+    }
+
+    @Override
     public String getDescription() {
         String s ="";
         System.out.println(description);

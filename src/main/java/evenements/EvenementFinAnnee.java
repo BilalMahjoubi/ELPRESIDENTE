@@ -29,6 +29,12 @@ public class EvenementFinAnnee extends Evenement {
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
 
     }
+    
+    @Override
+	public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+		// TODO Auto-generated method stub
+		
+	}
 
     @Override
     public String getDescription() {
@@ -36,5 +42,6 @@ public class EvenementFinAnnee extends Evenement {
         System.out.println(description);
         return s;
     }
+	
 
 }

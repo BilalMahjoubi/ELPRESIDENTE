@@ -35,18 +35,36 @@ public class RessourcesGalacticEvenement extends Evenement{
 
     @Override
     public void consequencesFacile(int choix, Economie e, Campagne campagne) {
-        if(choix == 1){
-            campagne.getFactions()[1].diminuerApprobation(5);
-
+    	if(choix == 1){
+            e.augmenterIndustrie(30);
+            e.diminuerTrésorerie(5000);
         }
         else if (choix == 2){
-            campagne.getFactions()[1].diminuerApprobation(20);
+        	e.augmenterIndustrie(20);
+            e.diminuerTrésorerie(500);
         }
         else if(choix == 3) {
-            campagne.getFactions()[1].augmenterApprobation(20);
+        	e.augmenterIndustrie(10);
+            e.diminuerTrésorerie(50);
         }
 
     }
+    
+    @Override
+	public void consequencesDifficile(int choix, Economie e, Campagne campagne) {
+    	if(choix == 1){
+            e.augmenterIndustrie(10);
+            e.diminuerTrésorerie(70000);
+        }
+        else if (choix == 2){
+        	e.augmenterIndustrie(5);
+            e.diminuerTrésorerie(7000);
+        }
+        else if(choix == 3) {
+        	e.augmenterIndustrie(2);
+            e.diminuerTrésorerie(700);
+        }
+	}
 
     @Override
     public String getDescription() {
@@ -54,6 +72,8 @@ public class RessourcesGalacticEvenement extends Evenement{
         System.out.println(description);
         return s;
     }
+
+	
 
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
