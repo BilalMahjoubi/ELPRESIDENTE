@@ -11,10 +11,10 @@ import events.*;
 import java.util.ArrayList;
 
 public class Campaign {
-    Faction[] factions;
+    private Faction[] factions;
     Event[] evenements;
     private Economy economy;
-    EventYearEnd fin;
+    private EventYearEnd fin;
 
     public Campaign() {
         factions = new Faction[]{new Faction("Capitalistes", 15, 50), new Faction("Communistes", 30, 50),
@@ -30,7 +30,6 @@ public class Campaign {
         int nb_evenement = 0;
         int years = 1;
         boolean echec = false;
-        Scanner sc = new Scanner(System.in);
         economy.increaseFood();
         while (!echec) {
             launchEvent(nb_evenement, difficulte, evenementpasse);
