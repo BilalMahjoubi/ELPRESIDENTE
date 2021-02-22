@@ -51,7 +51,7 @@ public class PlanetWarEvent extends Event{
         }
         else if (choix == 2){
         	campagne.getFactions()[2].increaseApproval(30);
-        	e.decreaseAgriculture(7);
+        	e.variationAgriculture(7,0);
         	e.decreaseTreasury(5);
         }
         
@@ -75,7 +75,7 @@ public class PlanetWarEvent extends Event{
         }
         else if (choix == 2){
         	campagne.getFactions()[2].increaseApproval(10);
-        	e.decreaseAgriculture(20);
+            e.variationAgriculture(20,0);
         	e.decreaseTreasury(15);
         }
         

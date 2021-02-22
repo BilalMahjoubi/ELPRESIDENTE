@@ -35,43 +35,54 @@ public class Economy {
     	return industry;
     }
     
-    public void increaseIndustry(int increase) {
-        if (surface > 0) {
-            this.industry = this.industry + increase;
-            this.surface = this.surface - increase;
+    public void variationIndustry(int number, int variation ) {
+        if(variation == 1) {
+            if (surface > 0) {
+                this.industry = this.industry + number;
+                this.surface = this.surface - number;
+            }
+            
+        }
+        else {
+            this.industry = this.industry - number;
+            this.surface = this.surface + number;
+            
+        }
+        
+
+
+    }
+
+    
+
+    public void variationAgriculture(int number, int variation) {
+        if(variation == 1){
+            if (surface > 0) {
+                this.agriculture = this.industry + number;
+                this.surface = this.surface - number;
+
+            }
+        }
+        else {
+            this.agriculture = this.industry - number;
+            this.surface = this.surface + number;
+
         }
 
 
     }
 
-    public void decreaseIndustry(int decrease) {
-        this.industry = this.industry - decrease;
-        this.surface = this.surface + decrease;
-    }
 
-    public void increaseAgriculture(int increase) {
-        if (surface > 0) {
-            this.agriculture = this.industry + increase;
-            this.surface = this.surface - increase;
-
-        }
-
-    }
-
-    public void decreaseAgriculture(int decrease) {
-        this.agriculture = this.industry - decrease;
-        this.surface = this.surface + decrease;
-    }
 
     public void increaseTreasury() {
-        this.treasury = this.industry * 10;
+        this.treasury += this.industry * 10;
     }
     public void decreaseTreasury(int nb) {
         this.treasury -= nb;
     }
 
     public void increaseFood() {
-        this.food = this.agriculture * 40;
+        this.food += this.agriculture * 40;
     }
 
     public int foodTotal(Campaign campaign) {

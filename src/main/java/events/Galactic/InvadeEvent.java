@@ -29,8 +29,8 @@ public class InvadeEvent extends Event{
             campaign.getFactions()[7].decreaseApproval(5);
         }
         else if(choice == 3) {
-        	e.increaseAgriculture(10);
-            e.increaseIndustry(5);
+        	e.variationAgriculture(10,1);
+            e.variationIndustry(5,1);
         }
     }
 
@@ -45,8 +45,8 @@ public class InvadeEvent extends Event{
             campaign.getFactions()[2].increaseApproval(30);
         }
         else if(choice == 3) {
-        	e.increaseAgriculture(20);
-            e.increaseAgriculture(10);
+        	e.variationAgriculture(20,1);
+            e.variationIndustry(10,1);
         }
 
     }
@@ -63,8 +63,8 @@ public class InvadeEvent extends Event{
             campaign.getFactions()[7].decreaseApproval(10);
         }
         else if(choice == 3) {
-        	e.increaseAgriculture(5);
-            e.increaseIndustry(5);
+        	e.variationAgriculture(5,1);
+            e.variationAgriculture(5,1);
         }
     }
 

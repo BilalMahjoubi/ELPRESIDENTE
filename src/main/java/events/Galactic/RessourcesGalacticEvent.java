@@ -19,15 +19,15 @@ public class RessourcesGalacticEvent extends Event{
     @Override
     public void consequences( int choice, Economy e, Campaign campaign) {
         if(choice == 1){
-            e.increaseIndustry(15);
+            e.variationIndustry(15,1);
             e.decreaseTreasury(50000);
         }
         else if (choice == 2){
-        	e.increaseIndustry(10);
+            e.variationIndustry(10,1);
             e.decreaseTreasury(5000);
         }
         else if(choice == 3) {
-        	e.increaseIndustry(5);
+        	e.variationIndustry(5,1);
             e.decreaseTreasury(500);
         }
     }
@@ -35,15 +35,16 @@ public class RessourcesGalacticEvent extends Event{
     @Override
     public void consequencesEasy(int choice, Economy e, Campaign campaign) {
     	if(choice == 1){
-            e.increaseIndustry(30);
+            e.variationIndustry(30,1);
+
             e.decreaseTreasury(5000);
         }
         else if (choice == 2){
-        	e.increaseIndustry(20);
+            e.variationIndustry(20,1);
             e.decreaseTreasury(500);
         }
         else if(choice == 3) {
-        	e.increaseIndustry(10);
+            e.variationIndustry(10,1);
             e.decreaseTreasury(50);
         }
 
@@ -52,15 +53,15 @@ public class RessourcesGalacticEvent extends Event{
     @Override
 	public void consequencesHard(int choice, Economy e, Campaign campaign) {
     	if(choice == 1){
-            e.increaseIndustry(10);
+            e.variationIndustry(10,1);
             e.decreaseTreasury(70000);
         }
         else if (choice == 2){
-        	e.increaseIndustry(5);
+            e.variationIndustry(5,1);
             e.decreaseTreasury(7000);
         }
         else if(choice == 3) {
-        	e.increaseIndustry(2);
+            e.variationIndustry(2,1);
             e.decreaseTreasury(700);
         }
 	}

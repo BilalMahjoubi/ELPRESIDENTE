@@ -23,11 +23,11 @@ public class MuskEvent extends Event{
             campaign.getFactions()[7].decreaseApproval(8);
             campaign.getFactions()[6].decreaseApproval(8);
             campaign.getFactions()[3].decreaseApproval(5);
-            e.increaseIndustry(30);
+            e.variationIndustry(30,1);
         }
         else if (choice == 2){
         	campaign.getFactions()[1].increaseApproval(20);
-        	e.increaseIndustry(10);
+            e.variationIndustry(10,1);
         }
         else if(choice == 3) {
             campaign.getFactions()[7].increaseApproval(15);
@@ -44,11 +44,11 @@ public class MuskEvent extends Event{
             campaign.getFactions()[7].decreaseApproval(4);
             campaign.getFactions()[6].decreaseApproval(4);
             campaign.getFactions()[3].decreaseApproval(2);
-            e.increaseIndustry(30);
+            e.variationIndustry(30,1);
         }
         else if (choice == 2){
         	campaign.getFactions()[1].increaseApproval(40);
-        	e.increaseIndustry(20);
+            e.variationIndustry(20,1);
         }
         else if(choice == 3) {
             campaign.getFactions()[7].increaseApproval(30);
@@ -64,11 +64,11 @@ public class MuskEvent extends Event{
             campaign.getFactions()[7].decreaseApproval(15);
             campaign.getFactions()[6].decreaseApproval(15);
             campaign.getFactions()[3].decreaseApproval(10);
-            e.increaseIndustry(30);
+            e.variationIndustry(30,1);
         }
         else if (choice == 2){
         	campaign.getFactions()[1].increaseApproval(10);
-        	e.increaseIndustry(10);
+            e.variationIndustry(10,1);
         }
         else if(choice == 3) {
             campaign.getFactions()[7].increaseApproval(10);
