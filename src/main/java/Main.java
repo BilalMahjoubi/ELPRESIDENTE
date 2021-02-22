@@ -11,22 +11,22 @@ public class Main {
             case "sable" -> {
                 Campaign c = new CampaignBacASable();
                 String dif = c.choisirDifficulte();
-                c.lancer(dif);
+                c.launch(dif);
             }
             case "galactic" -> {
                 Campaign c = new CampaignGalactic();
                 String dif = c.choisirDifficulte();
-                c.lancer(dif);
+                c.launch(dif);
             }
             case "hero" -> {
                 Campaign c = new CampaignSuperHeroes();
                 String dif = c.choisirDifficulte();
-                c.lancer(dif);
+                c.launch(dif);
             }
             case "techno" -> {
                 Campaign c = new CampaignTechno();
                 String dif = c.choisirDifficulte();
-                c.lancer(dif);
+                c.launch(dif);
             }
         }
     }

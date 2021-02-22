@@ -25,19 +25,19 @@ public class Campaign {
         economy = new Economy(10000, 100, 15, 15);
     }
 
-    public void lancer(String difficulte) {
-        ArrayList<Integer> evenementpasse = new ArrayList<>();
+    public void launch(String difficulte) {
+        ArrayList<Integer> past_event = new ArrayList<>();
         int nb_evenement = 0;
         int years = 1;
         boolean echec = false;
         economy.increaseFood();
         while (!echec) {
-            launchEvent(nb_evenement, difficulte, evenementpasse);
+            launchEvent(nb_evenement, difficulte, past_event);
             economy.increaseFood();
             economy.increaseTreasury();
             launchEndYear();
             echec = bilan(economy);
-            evenementpasse.clear();
+            past_event.clear();
             nb_evenement = 0;
         }
         System.out.println("Vous avez perdu ! Le peuple vous a destitué de vos fonctions et pendu. Vous avez tenu : " + years + " ans");
