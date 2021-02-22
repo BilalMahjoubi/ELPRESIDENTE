@@ -16,11 +16,13 @@ public class EventYearEnd extends Event {
 
     @Override
     public void consequences(int choice, Economy e, Campaign campaign) {
+        int amount;
         if (choice == 1) {
             e.marketFood();
 
         } else if (choice == 2) {
-            e.potDeVin(campaign);
+            amount=e.potDeVin(campaign);
+            campaign.getFactions()[7].decreaseApproval(amount / 10);
         }
 
     }

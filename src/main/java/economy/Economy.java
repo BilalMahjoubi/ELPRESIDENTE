@@ -103,7 +103,7 @@ public class Economy {
 
 
     }
-    public void potDeVin(Campaign campagne) {
+    public int potDeVin(Campaign campagne) {
         int cmp = 0;
         int choice;
         int amount;
@@ -119,9 +119,11 @@ public class Economy {
         if (treasury >= amount) {
             campagne.getFactions()[choice].increaseApproval(10);
             treasury = treasury - amount;
+            return amount;
         }
         else {
             System.out.println("Vous n'avez pas assez d'argent.");
+            return 0;
         }
 
     }
